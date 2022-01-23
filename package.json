@@ -1,0 +1,24 @@
+{
+  "name": "tea-app",
+  "version": "1.0.0",
+  "description": "an api for tea app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stanleyamate/tea-app-api.git"
+  },
+  "author": "stanley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stanleyamate/tea-app-api/issues"
+  },
+  "homepage": "https://github.com/stanleyamate/tea-app-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2"
+  }
+}

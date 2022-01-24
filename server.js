@@ -6,21 +6,14 @@ const dotenv = require('dotenv').config();
 
 const app = express();
 
-//Database credentials
-const username = "jamjohnson";
-const password = "sta78726486";
-const cluster = "cluster0.ou3dk";
-const dbname = "tea-app-app";
-
 app.use(express.json()); // parses incoming requests with JSON payloads
-//establish connection to database
 
 app.use('/', routes) // to use the routes
 
 app.use('/uploads', express.static('./uploads'));
 
 mongoose.connect(
-  `mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${dbname}?retryWrites=true&w=majority`,
+  `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
     (err) => {
         if (err) return console.log("Error: ", err);
         console.log("MongoDB Connection -- Ready state is:", mongoose.connection.readyState);

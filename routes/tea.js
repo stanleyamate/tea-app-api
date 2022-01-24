@@ -1,18 +1,19 @@
-const express = require('express');
-const router = express.Router();
-// import tea.js from controllers folder
-const teaController =require('../controllers/tea');
-
- //list of routes to the tea controllers.
- 
- router.get('/tea', teaController.getAllTea);
- router.post('/tea', teaController.newTea);
- router.delete('/tea', teaController.deleteAllTea);
+const express = require('express'); //import express
+const multer = require('multer');
+const upload = multer();
 
 
- router.get('/tea/:name', teaController.getOneTea);
- router.post('/tea/:name', teaController.newComment);
- router.delete('/tea/:name', teaController.deleteOneTea);
+// 1.
+const router  = express.Router(); 
+// 2.
+const teaController = require('../controllers/tea').default; 
+// 3.
+router.post("/tea", upload.none(), teaController.newTea);
+router.get('/tea', teaController.getAlltea);
+router.delete('/tea', teaController.deleteAllTea);
 
-
- module.exports = router; // export to use in server.js
+router.post('/tea/:name', teaController.newComment);
+router.get('/tea/:name', teaController.getOneTea);
+router.delete('/tea/:name', teaController.deleteOneTea);
+// 4. 
+module.exports = router; // export to use in server.js

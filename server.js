@@ -17,6 +17,7 @@ app.use(express.json()); // parses incoming requests with JSON payloads
 
 app.use('/', routes) // to use the routes
 
+app.use('/uploads', express.static('./uploads'));
 
 mongoose.connect(
   `mongodb+srv://${username}:${password}@${cluster}.mongodb.net/${dbname}?retryWrites=true&w=majority`,
